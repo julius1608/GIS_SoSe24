@@ -1,0 +1,2 @@
+# GIS_SS24
+Parkplatz mit automatischer Kennzeichenerkennung, der Autos die durch den Eingang fahren erkennt und direkt zur Datenbank hinzufügt. Am Kassenautomat bezahlt man indem man sein Kennzeichen eintippt. Danach kann man ohne Schranke einfach rausfahren und die Kamera am Ausgang löscht das Fahrzeug aus der Datenbank sofern man bezahlt hat. Im Fall, dass Kunden den Parkplatz verlassen ohne zu bezahlen werden die Kennzeichen Informationen gespeichert und der Kunde erhält eine Strafzettel. Erst nach dessen Bezahlung wird das Kennzeichen gelöscht.
