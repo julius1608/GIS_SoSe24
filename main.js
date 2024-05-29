@@ -1,9 +1,13 @@
 // Funktion, um Spielerinformationen im LocalStorage zu speichern
+// JSON.stringify(players) wandelt das JavaScript-Objekt players in einen JSON-String um
+// localStorage.setItem('players', JSON.stringify(players)) speichert den JSON-String im LocalStorage unter dem Schlüssel 'players'
 function savePlayers() {
     localStorage.setItem('players', JSON.stringify(players));
 }
 
 // Funktion, um Spielerinformationen aus dem LocalStorage zu laden
+// localStorage.getItem('players') ruft den JSON-String aus dem LocalStorage ab (dieser ist unter Schlüssel 'players' gespeichert)
+// JSON.parse(storedPlayers) wandelt den JSON-String wieder in  JavaScript-Objekt um
 function loadPlayers() {
     const storedPlayers = localStorage.getItem('players');
     if (storedPlayers) {
@@ -19,7 +23,7 @@ window.onload = () => {
     }
 };
 
-// Funktion, um die Spielerinformationen zu aktualisieren
+// Funktion, um die Spielerinformationen zu aktualisieren - DOM Manipulation!!!
 function updatePlayerInfo(player) {
     document.getElementById('player-name').innerText = player.name;
     document.getElementById('player-age').innerText = player.age;
@@ -51,17 +55,17 @@ function addPlayer() {
         value: "0,00 Mio. €",
         image: "https://via.placeholder.com/150"
     };
-    players.push(newPlayer);
-    currentPlayerIndex = players.length - 1;
-    updatePlayerInfo(newPlayer);
-    savePlayers();
+    players.push(newPlayer); // Hinzufügen des neuen Spielers zur players-Liste
+    currentPlayerIndex = players.length - 1; // Aktualisieren des aktuellen Spielerindex
+    updatePlayerInfo(newPlayer); // Aktualisieren der Spielerinformationen im DOM
+    savePlayers(); // Speichern der Spielerinformationen im LocalStorage
 }
 
 // Funktion, um die Informationen eines Spielers zu ändern
 function changePlayer() {
-    if (players.length === 0) return;
-    let player = players[currentPlayerIndex];
-    player.name = prompt("Name:", player.name);
+    if (players.length === 0) return; // Überprüfung,ob Spieler vorhanden sind
+    let player = players[currentPlayerIndex]; // Auswahl des aktuellen Spielers
+    player.name = prompt("Name:", player.name); // Ändern der Spielerinformationen über Eingabeaufforderungen
     player.age = prompt("Alter:", player.age);
     player.height = prompt("Größe:", player.height);
     player.position = prompt("Position:", player.position);
@@ -73,15 +77,15 @@ function changePlayer() {
     player.since = prompt("Im Team seit:", player.since);
     player.value = prompt("Aktueller Marktwert:", player.value);
     player.image = prompt("Bild URL:", player.image);
-    updatePlayerInfo(player);
-    savePlayers();
+    updatePlayerInfo(player); // Aktualisieren der Spielerinformationen im DOM
+    savePlayers(); // Speichern der Spielerinformationen im LocalStorage
 }
 
 // Funktion, um einen Spieler zu löschen
 function deletePlayer() {
-    if (players.length === 0) return;
-    players.splice(currentPlayerIndex, 1);
-    if (players.length === 0) {
+    if (players.length === 0) return; // Überprüfung ob Spieler vorhanden sind
+    players.splice(currentPlayerIndex, 1); // Löschen des aktuellen Spielers
+    if (players.length === 0) { // Überprüfung, ob nach dem Löschen noch Spieler vorhanden sind
         let placeholderPlayer = {
             name: "Kein Spieler",
             age: 0,
@@ -101,7 +105,7 @@ function deletePlayer() {
         currentPlayerIndex = currentPlayerIndex % players.length;
         updatePlayerInfo(players[currentPlayerIndex]);
     }
-    savePlayers();
+    savePlayers(); // Speichern der Spielerinformationen im LocalStorage
 }
 
 // Funktion, um zum nächsten Spieler zu wechseln
