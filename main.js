@@ -115,3 +115,5 @@ function nextPlayer() {
 function changeImageScale(scale) {
     document.getElementById('player-image').style.transform = `scale(${scale / 100})`;
 }
+
+// viel mit Chatgpt gearbeitet
