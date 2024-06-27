@@ -1,155 +1,40 @@
-let players = [];
-let currentPlayerIndex = 0;
-
-// Spielerinformationen aus dem Server laden
-async function loadPlayers() {
-    try {
-        const response = await fetch('http://localhost:3000/players');
-        players = await response.json();
-        if (players.length > 0) {
-            updatePlayerInfo(players[currentPlayerIndex]);
-        }
-    } catch (error) {
-        console.error('Fehler beim Laden der Spieler:', error);
-    }
-}
-
-// Spielerinformationen aktualisieren
-function updatePlayerInfo(player) {
-    document.getElementById('player-name').innerText = player.name;
-    document.getElementById('player-age').innerText = player.age;
-    document.getElementById('player-height').innerText = player.height;
-    document.getElementById('player-position').innerText = player.position;
-    document.getElementById('player-foot').innerText = player.foot;
-    document.getElementById('player-nationality').innerText = player.nationality;
-    document.getElementById('player-caps').innerText = player.caps;
-    document.getElementById('player-goals').innerText = player.goals;
-    document.getElementById('player-club').innerText = player.club;
-    document.getElementById('player-since').innerText = player.since;
-    document.getElementById('player-value').innerText = player.value;
-    document.getElementById('player-image').src = player.image;
-}
-
-// Neuen Spieler hinzufügen
-async function addPlayer() {
-    let newPlayer = {
-        name: "Kein Spieler",
-            age: 0,
-            height: "0,00 m",
-            position: "Unbekannt",
-            foot: "Unbekannt",
-            nationality: "Unbekannt",
-            caps: 0,
-            goals: 0,
-            club: "Unbekannt",
-            since: "Unbekannt",
-            value: "0,00 Mio. €",
-            image: "https://via.placeholder.com/150"
-    };
-
-    try {
-        const response = await fetch('http://localhost:3000/players', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(newPlayer)
-        });
-        const savedPlayer = await response.json();
-        players.push(savedPlayer);
-        currentPlayerIndex = players.length - 1;
-        updatePlayerInfo(savedPlayer);
-    } catch (error) {
-        console.error('Fehler beim Hinzufügen des Spielers:', error);
-    }
-}
-
-// Spielerinformationen ändern
-async function changePlayer() {
-    if (players.length === 0) return;
-
-    let player = players[currentPlayerIndex];
-    player.name = prompt("Name:", player.name) || player.name;
-    player.age = prompt("Alter:", player.age) || player.age;
-    player.height = prompt("Größe:", player.height) || player.height;
-    player.position = prompt("Position:", player.position) || player.position;
-    player.foot = prompt("Fuß:", player.foot) || player.foot;
-    player.nationality = prompt("Nationalmannschaft:", player.nationality) || player.nationality;
-    player.caps = prompt("Länderspiele:", player.caps) || player.caps;
-    player.goals = prompt("Tore:", player.goals) || player.goals;
-    player.club = prompt("Aktueller Verein:", player.club) || player.club;
-    player.since = prompt("Im Team seit:", player.since) || player.since;
-    player.value = prompt("Aktueller Marktwert:", player.value) || player.value;
-    player.image = prompt("Bild URL:", player.image) || player.image;
-
-    try {
-        const response = await fetch(`http://localhost:3000/players/${player._id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(player)
-        });
-        const updatedPlayer = await response.json();
-        players[currentPlayerIndex] = updatedPlayer;
-        updatePlayerInfo(updatedPlayer);
-    } catch (error) {
-        console.error('Fehler beim Ändern des Spielers:', error);
-    }
-}
-
-// Spieler löschen
-async function deletePlayer() {
-    if (players.length === 0) return;
-
-    try {
-        const playerId = players[currentPlayerIndex]._id;
-        const response = await fetch(`http://localhost:3000/players/${playerId}`, {
-            method: 'DELETE'
-        });
-
-        if (response.ok) {
-            players.splice(currentPlayerIndex, 1);
-            if (players.length === 0) {
-                updatePlayerInfo({
-                    name: "Kein Spieler",
-                    age: 0,
-                    height: "0,00 m",
-                    position: "Unbekannt",
-                    foot: "Unbekannt",
-                    nationality: "Unbekannt",
-                    caps: 0,
-                    goals: 0,
-                    club: "Unbekannt",
-                    since: "Unbekannt",
-                    value: "0,00 Mio. €",
-                    image: "https://via.placeholder.com/150"
-                });
-            } else {
-                currentPlayerIndex = currentPlayerIndex % players.length;
-                updatePlayerInfo(players[currentPlayerIndex]);
-            }
-        } else {
-            console.error('Fehler beim Löschen des Spielers:', await response.text());
-        }
-    } catch (error) {
-        console.error('Fehler beim Löschen des Spielers:', error);
-    }
-}
-
-// Zum nächsten Spieler wechseln
-function nextPlayer() {
-    if (players.length === 0) return;
-    currentPlayerIndex = (currentPlayerIndex + 1) % players.length;
-    updatePlayerInfo(players[currentPlayerIndex]);
-}
-
-// Bildskalierung ändern
-function changeImageScale(scale) {
-    document.getElementById('player-image').style.transform = `scale(${scale / 100})`;
-}
-
-// Seite laden und Spielerinformationen abrufen
-window.onload = function () {
-    loadPlayers();
-};
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dein digitales Sammelheft - EM 2024</title>
+</head>
+<body onload="loadPlayers()">
+    <div class="container">
+        <div class="player-info">
+            <h1 id="player-name">Jude Bellingham</h1>
+            <p><strong>Alter:</strong> <span id="player-age">20</span></p>
+            <p><strong>Größe:</strong> <span id="player-height">1,86 m</span></p>
+            <p><strong>Position:</strong> <span id="player-position">Offensives Mittelfeld</span></p>
+            <p><strong>Fuß:</strong> <span id="player-foot">rechts</span></p>
+            <p><strong>Nationalmannschaft:</strong> <span id="player-nationality">England</span></p>
+            <p><strong>Länderspiele:</strong> <span id="player-caps">29</span></p>
+            <p><strong>Tore:</strong> <span id="player-goals">3</span></p>
+            <p><strong>Aktueller Verein:</strong> <span id="player-club">Real Madrid</span></p>
+            <p><strong>Im Team seit:</strong> <span id="player-since">01.07.2023</span></p>
+            <p><strong>Aktueller Marktwert:</strong> <span id="player-value">180,00 Mio. €</span></p>
+            <div class="button-container">
+                <button class="button" onclick="addPlayer()">Spieler hinzufügen</button>
+                <button class="button" onclick="changePlayer()">Spielerdaten ändern</button>
+                <button class="button" onclick="deletePlayer()">Spieler löschen</button>
+                <button class="button" onclick="nextPlayer()">Zu deinem nächsten Lieblingsspieler</button>
+            </div>
+            <div class="button-container">
+                <label for="imageScaleRange">Spielerbild skalieren:</label>
+                <input type="range" id="imageScaleRange" min="50" max="150" value="100" onchange="changeImageScale(this.value)">
+            </div>
+        </div>
+        <div class="player-image-container">
+            <img id="player-image" src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcQ0526XMetV7FzzeIFWhpO9ZX8L6CL4MXUfZtzJeyqRSSTtNHeQ2Mdp0apbk2mRivpgsupX3kj7_SvmlUA" alt="Spieler Bild" class="player-image">
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
