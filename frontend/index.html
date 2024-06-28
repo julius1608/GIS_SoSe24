@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dein digitales Sammelheft - EM 2024</title>
+</head>
+<body onload="loadPlayers()">
+    <div class="container">
+        <div class="player-info">
+            <h1 id="player-name">Jude Bellingham</h1>
+            <p><strong>Alter:</strong> <span id="player-age">20</span></p>
+            <p><strong>Größe:</strong> <span id="player-height">1,86 m</span></p>
+            <p><strong>Position:</strong> <span id="player-position">Offensives Mittelfeld</span></p>
+            <p><strong>Fuß:</strong> <span id="player-foot">rechts</span></p>
+            <p><strong>Nationalmannschaft:</strong> <span id="player-nationality">England</span></p>
+            <p><strong>Länderspiele:</strong> <span id="player-caps">29</span></p>
+            <p><strong>Tore:</strong> <span id="player-goals">3</span></p>
+            <p><strong>Aktueller Verein:</strong> <span id="player-club">Real Madrid</span></p>
+            <p><strong>Im Team seit:</strong> <span id="player-since">01.07.2023</span></p>
+            <p><strong>Aktueller Marktwert:</strong> <span id="player-value">180,00 Mio. €</span></p>
+            <div class="button-container">
+                <button class="button" onclick="addPlayer()">Spieler hinzufügen</button>
+                <button class="button" onclick="changePlayer()">Spielerdaten ändern</button>
+                <button class="button" onclick="deletePlayer()">Spieler löschen</button>
+                <button class="button" onclick="nextPlayer()">Zu deinem nächsten Lieblingsspieler</button>
+            </div>
+            <div class="button-container">
+                <label for="imageScaleRange">Spielerbild skalieren:</label>
+                <input type="range" id="imageScaleRange" min="50" max="150" value="100" onchange="changeImageScale(this.value)">
+            </div>
+        </div>
+        <div class="player-image-container">
+            <img id="player-image" src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcQ0526XMetV7FzzeIFWhpO9ZX8L6CL4MXUfZtzJeyqRSSTtNHeQ2Mdp0apbk2mRivpgsupX3kj7_SvmlUA" alt="Spieler Bild" class="player-image">
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
