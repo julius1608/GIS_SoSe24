@@ -9,7 +9,7 @@ const DATA_FILE = path.join(__dirname, 'players.json');
 // Middleware zum Parsen von JSON
 app.use(express.json());
 
-// Statische Dateien aus dem frontend Ordner ausliefern
+// Statische Dateien aus Ordner ausliefern
 app.use(express.static(path.join(__dirname, 'frontend')));
 
 let players = [];
@@ -29,7 +29,7 @@ function savePlayers() {
 
 // Route für die Root-URL ("/") hinzufügen
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
+    res.sendFile(path.join(__dirname, 'frontend', 'index.html')); //dirname damit der spielername gefunden wird
 });
 
 // Alle Spieler abrufen
@@ -74,5 +74,5 @@ app.delete('/players/:id', (req, res) => {
 loadPlayers();
 
 app.listen(PORT, () => {
-    console.log(`Server läuft auf http://localhost:${PORT}`);
+    console.log(`Server läuft auf http://localhost:${PORT}`); //mein code checkt erstmal ab ob schon spieler vorhanden sind
 });
