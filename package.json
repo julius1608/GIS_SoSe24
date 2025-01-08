@@ -1,16 +1,16 @@
 {
-  "name": "projekt-2",
+  "name": "digitales-sammelalbum-em",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node backend/server.js",
+    "initdb": "node backend/initdb.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "express": "^4.19.2"
+    "mongoose": "^8.8.3"
   }
 }

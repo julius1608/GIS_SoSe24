@@ -11,8 +11,7 @@
     "club": "VFB Stuttgart",
     "since": "2021",
     "value": "30,00 Mio €",
-    "image": "https://www.swr.de/sport/fussball/vfb-stuttgart/1713429931690%2Cdeniz-undav-114~_v-1x1@2dL_-029cdd853d61a51824ed2ee643deeae504b065c1.jpg",
-    "_id": "1719420878965"
+    "image": "https://www.swr.de/sport/fussball/vfb-stuttgart/1713429931690%2Cdeniz-undav-114~_v-1x1@2dL_-029cdd853d61a51824ed2ee643deeae504b065c1.jpg"
   },
   {
     "name": "Jude Bellingham",
@@ -26,8 +25,7 @@
     "club": "Real Madrid",
     "since": "2021",
     "value": "180,00 Mio €",
-    "image": "https://e6.365dm.de/23/08/1600x900/skysport_de-real-madrid-jude-bellingham_6266878.jpg?20230829172525",
-    "_id": "1719420974038"
+    "image": "https://e6.365dm.de/23/08/1600x900/skysport_de-real-madrid-jude-bellingham_6266878.jpg?20230829172525"
   },
   {
     "name": "Pablo Gavi",
@@ -41,8 +39,7 @@
     "club": "FC Barcelona",
     "since": "2017",
     "value": "120,00 Mio. €",
-    "image": "https://tmssl.akamaized.net/images/foto/galerie/gavi-fc-barcelona-2022-23-1663149018-92341.jpg?lm=1663149037",
-    "_id": "1719421662259"
+    "image": "https://tmssl.akamaized.net/images/foto/galerie/gavi-fc-barcelona-2022-23-1663149018-92341.jpg?lm=1663149037"
   },
   {
     "name": "Cristiano Ronaldo",
@@ -56,8 +53,7 @@
     "club": "Al Nassr",
     "since": "2022",
     "value": "40,00 Mio. €",
-    "image": "https://images.bild.de/6669b1ebc674eb2c4b563f63/df6a5629c3f8f20bf28d6f4deef50669,10f3d828?w=992",
-    "_id": "1719436409614"
+    "image": "https://images.bild.de/6669b1ebc674eb2c4b563f63/df6a5629c3f8f20bf28d6f4deef50669,10f3d828?w=992"
   },
   {
     "name": "Waldemar Anton",
@@ -71,22 +67,6 @@
     "club": "VFB Stuttgart",
     "since": "2022",
     "value": "20,00 Mio. €",
-    "image": "https://www.swr.de/sport/fussball/vfb-stuttgart/1713429529564%2Cwaldemar-anton-134~_v-1x1@2dL_-029cdd853d61a51824ed2ee643deeae504b065c1.jpg",
-    "_id": "1719484015138"
-  },
-  {
-    "name": "Kein Spieler",
-    "age": 0,
-    "height": "0,00 m",
-    "position": "Unbekannt",
-    "foot": "Unbekannt",
-    "nationality": "Unbekannt",
-    "caps": 0,
-    "goals": 0,
-    "club": "Unbekannt",
-    "since": "Unbekannt",
-    "value": "0,00 Mio. €",
-    "image": "https://via.placeholder.com/150",
-    "_id": "1719499107684"
+    "image": "https://www.swr.de/sport/fussball/vfb-stuttgart/1713429529564%2Cwaldemar-anton-134~_v-1x1@2dL_-029cdd853d61a51824ed2ee643deeae504b065c1.jpg"
   }
 ]

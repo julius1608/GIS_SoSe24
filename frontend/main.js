@@ -34,17 +34,17 @@ function updatePlayerInfo(player) {
 async function addPlayer() {
     let newPlayer = {
         name: "Kein Spieler",
-            age: 0,
-            height: "0,00 m",
-            position: "Unbekannt",
-            foot: "Unbekannt",
-            nationality: "Unbekannt",
-            caps: 0,
-            goals: 0,
-            club: "Unbekannt",
-            since: "Unbekannt",
-            value: "0,00 Mio. €",
-            image: "https://via.placeholder.com/150"
+		age: 0,
+		height: "0,00 m",
+		position: "Unbekannt",
+		foot: "Unbekannt",
+		nationality: "Unbekannt",
+		caps: 0,
+		goals: 0,
+		club: "Unbekannt",
+		since: "Unbekannt",
+		value: "0,00 Mio. €",
+		image: "https://via.placeholder.com/150"
     };
 
     try {
