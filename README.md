@@ -1,6 +1,6 @@
-# Digitales Sammelalbum EM 🃏
+# Digital scrapbook European Championship 🃏
 
-Digitales Sammelheft für die EM 2024, in der jeder User seine ganz eigenen Spieler erstellen, bearbeiten und löschen kann in dafür angefertigte Textfelder und Buttons. Auf der rechten Seite sieht man ein Bild des Spielers und Links seine Daten und Eigenschaften wie Marktwert, Verein, Größe, Tore etc.
+Digital scrapbook for Euro 2024, in which every user can create, edit and delete their very own players in text fields and buttons created for this purpose. On the right side you can see a picture of the player and on the left his data and characteristics such as market value, club, height, goals etc.
 
 ## Run The App 🚀
 
